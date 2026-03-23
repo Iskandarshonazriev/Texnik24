@@ -1,0 +1,33 @@
+import { useState } from "react";
+import Header from "./components/Header";
+import Filter from "./components/Filter";
+import Card from "./components/Card";
+
+export default function App() {
+  const [filter, setFilter] = useState("all");
+
+  const trucks = [
+    { id: 1, type: "truck", price: 500, img: "/truck1.jpg" },
+    { id: 2, type: "truck", price: 400, img: "/truck2.jpg" },
+    { id: 3, type: "dump", price: 450, img: "/truck3.jpg" },
+    { id: 4, type: "dump", price: 400, img: "/truck4.jpg" },
+  ];
+
+  const filteredData =
+    filter === "all"
+      ? trucks
+      : trucks.filter((item) => item.type === filter);
+
+  return (
+    <div className="bg-gray-100 min-h-screen">
+      <Header />
+      <Filter setFilter={setFilter} filter={filter} />
+
+      <div className="grid grid-cols-2 gap-4 p-4">
+        {filteredData.map((truck) => (
+          <Card key={truck.id} truck={truck} />
+        ))}
+      </div>
+    </div>
+  );
+}
