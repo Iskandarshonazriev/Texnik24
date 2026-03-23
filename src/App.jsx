@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import Sidebar from "./components/Sidebar";
 import TruckList from "./components/TruckList";
+import { HashRouter } from "react-router-dom";
 export default function App() {
   const [category, setCategory] = useState("all");
 
@@ -65,6 +66,9 @@ export default function App() {
 
   return (
     <div className="flex">
+      <HashRouter>
+  <App />
+</HashRouter>
       <Sidebar category={category} setCategory={setCategory} />
       <TruckList data={filtered} />
     </div>
