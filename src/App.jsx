@@ -1,7 +1,7 @@
 import { useState } from "react";
+import { Routes, Route } from "react-router-dom";
 import Sidebar from "./components/Sidebar";
 import TruckList from "./components/TruckList";
-
 export default function App() {
   const [category, setCategory] = useState("all");
 
