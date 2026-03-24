@@ -111,8 +111,7 @@ export default function TruckCard({ item }) {
                 Отмена
               </button>
 
-              <button
-                onClick={handleOrder}
+              <button  onClick={handleOrder}
                 disabled={loading}
                 className="px-4 py-2 bg-green-600 text-white rounded disabled:opacity-50"
               >
